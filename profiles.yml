@@ -1,0 +1,15 @@
+soccer_538:
+    target: dev
+    outputs:
+        dev:
+            type: redshift
+            host: hostname.region.redshift.amazonaws.com
+            user: "{{ env_var('redshift_username') }}"
+            password: "{{ env_var('redshift_password') }}"
+            port: 5439
+            dbname: analytics
+            schema: soccer
+            threads: 4
+            keepalives_idle: 240 # default 240 seconds
+            connect_timeout: 10 # default 10 seconds
+            ra3_node: true
